@@ -8,6 +8,7 @@ public:
 	bool draw_flag;
 
 	void emulateCycle();
+	void debugRender();
 	bool loadGame(const char *filename);
 
 	unsigned char  gfx[64 * 32];	// Total amount of pixels: 2048
@@ -19,7 +20,7 @@ private:
 	unsigned short index;			// Index register
 	unsigned short sp;				// Stack pointer
 
-	unsigned char  V_register[16];			// V-regs (V0-VF)
+	unsigned char  V[16];	// V-registers (V0-VF)
 	unsigned short stack[16];		// Stack (16 levels)
 	unsigned char  memory[4096];	// Memory (size = 4k)		
 
