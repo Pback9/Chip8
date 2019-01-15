@@ -16,6 +16,7 @@ chip8 emuChip8;
 
 int main(int argc, char **argv) {
 	
+	// check to see if an argument was provided
 	if (argc < 2) {
 		printf("Usage: chip8.exe [rom]");
 		return 1;
@@ -50,6 +51,8 @@ int main(int argc, char **argv) {
 
 
 		if (clock.getElapsedTime().asSeconds() >= refresh_rate) {
+
+			// update keystate
 			emuChip8.key[0x1] = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num1);
 			emuChip8.key[0x2] = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num2);
 			emuChip8.key[0x3] = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num3);

@@ -33,7 +33,7 @@ chip8::~chip8() {
 }
 
 void chip8::init() {
-	pc = 0x200;
+	pc = 0x200; // program counter starts at 512
 	opcode = 0;
 	index = 0;
 	sp = 0;
@@ -397,21 +397,4 @@ void chip8::emulateCycle() {
 		sound_timer--;
 	}
 
-}
-
-void chip8::debugRender()
-{
-	// Draw
-	for (int y = 0; y < 32; ++y)
-	{
-		for (int x = 0; x < 64; ++x)
-		{
-			if (gfx[(y * 64) + x] == 0)
-				printf("O");
-			else
-				printf(" ");
-		}
-		printf("\n");
-	}
-	printf("\n");
 }
